@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .skills-container {
+            width: 50%;
+            margin: 50px auto;
+        }
+
+        .skill-section {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            height: 20px;
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+	<h2> Skills</h2>
+
+    <div class="skills-container">
+        <div class="skill-section">
+            <span class="skill-name">C Programming</span>
+            <div class="progress-bar" style="width: 90%; background-color: #007bff;"></div>
+        </div>
+
+        <div class="skill-section">
+            <span class="skill-name">Python</span>
+            <div class="progress-bar" style="width: 80%; background-color: #00cc66;"></div>
+        </div>
+
+        <div class="skill-section">
+            <span class="skill-name">SQL</span>
+            <div class="progress-bar" style="width: 95%; background-color: #ff9933;"></div>
+        </div>
+
+        <div class="skill-section">
+            <span class="skill-name">Data Structure</span>
+            <div class="progress-bar" style="width: 75%; background-color: #9933cc;"></div>
+        </div>
+
+        <div class="skill-section">
+            <span class="skill-name">Java</span>
+            <div class="progress-bar" style="width: 85%; background-color: #ff6666;"></div>
+        </div>
+    </div>
+
+    <script>
+	function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+
+            progressBars.forEach(progressBar => {
+                const targetWidth = parseInt(progressBar.getAttribute('data-width'));
+                const maxWidth = 200; // Set your desired maximum width in pixels
+
+                let currentWidth = maxWidth;
+
+                function updateProgressBar() {
+                    if (currentWidth > targetWidth && currentWidth > 0) {
+                        currentWidth -= 2; // Adjust the step size as needed
+                        progressBar.style.width = currentWidth + 'px';
+                        requestAnimationFrame(updateProgressBar);
+                    }
+                }
+
+                updateProgressBar();
+            });
+        }
+
+        // Trigger animation when the window is loaded
+        window.onload = animateProgressBars;
+        
+   </script>
+
+</body>
+
+</html>
